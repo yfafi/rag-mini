@@ -16,3 +16,6 @@ chroma_db/
 
 # Secrets
 .env
+
+# modèles lourds
+models/

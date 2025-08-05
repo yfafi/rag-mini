@@ -1,0 +1,3 @@
+Document de test pour RAG.
+Ligne 2 : vérification de l'ingestion.
+Ligne 3 : test LangChain + Chroma.
