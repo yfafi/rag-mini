@@ -1,0 +1,20 @@
+# Python / venv
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# VCS / IDE
+.git/
+.gitignore
+.vscode/
+.idea/
+
+# Données locales
+chroma_db/
+models/
+*.log
+
+# Secrets
+.env
+.env.*
