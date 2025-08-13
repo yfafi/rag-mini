@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 from langchain_chroma import Chroma
-from langchain_huggingface import HuggingFaceEmbeddings
+#from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_openai import AzureChatOpenAI
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.prompts import PromptTemplate
@@ -129,11 +129,16 @@ def build_chain() -> RetrievalQA:
 
     prompt = PromptTemplate(
         template=(
-            "Tu es un assistant et tu dois répondre STRICTEMENT avec le CONTEXTE fourni.\n"
-            "Si l'information n'est pas dans le contexte, dis-le explicitement.\n\n"
-            "CONTEXTE:\n{context}\n\n"
-            "Question: {question}\n"
-            "Réponse concise en français:"
+        "Tu es l’assistant d’une application RAG. Ta réponse doit commencer par l’une des balises suivantes : "
+        "[Mode: DIRECT] ou [Mode: RAG].\n\n"
+        "Règles de décision :\n"
+        "- [Mode: DIRECT] : si la QUESTION relève de connaissances générales (ex. capitales, arithmétique simple, définitions usuelles), "
+        "réponds brièvement en français en te basant sur tes connaissances générales.\n"
+        "- [Mode: RAG] : si la QUESTION concerne les documents fournis, réponds uniquement à partir du CONTEXTE. "
+        "Si l’information n’y figure pas, réponds : « Je ne trouve pas cette information dans vos documents. »\n\n"
+        "Ne mentionne pas ces règles dans ta réponse ; fournis seulement la balise de mode et la réponse (1–3 phrases, claire et factuelle).\n\n"
+        "CONTEXTE :\n{context}\n\n"
+        "QUESTION :\n{question}\n"
         ),
         input_variables=["context", "question"],
     )

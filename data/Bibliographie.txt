@@ -1,4 +1,5 @@
-Je suis Younes. J'ai un ami qui se nomme Ahmed. 
+Je suis Younes. 
 J'ai 24 ans, j'ai un diplome en informatique spécialisé en IA et big data. 
 Je travaille actuellement chez Red Hat en tant que junior consultant. 
 J'ai rejoin cette entreprise via leur graduate program. 
+J'ai un ami qui se nomme Ahmed. Il travaille chez Salesforce, le bureau se situe en face de la Tour Eiffel.
